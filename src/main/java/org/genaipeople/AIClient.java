@@ -11,7 +11,7 @@ public class AIClient {
     private OpenAiService aiService = null;
     private static final String DEFAULT_MODEL = "ada";
     public AIClient(){
-        aiService = new OpenAiService("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");
+        aiService = new OpenAiService("<Your Token>");
     }
 
     public List<CompletionChoice> complete(String prompt, String model){
