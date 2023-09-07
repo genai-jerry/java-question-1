@@ -9,9 +9,9 @@ import java.util.List;
 public class AIClient {
 
     private OpenAiService aiService = null;
-    private static final String DEFAULT_MODEL = "ada";
-    public AIClient(){
-        aiService = new OpenAiService("<Your Token>");
+    private static final String DEFAULT_MODEL = "text-davinci-003";
+    public AIClient(String token){
+        aiService = new OpenAiService(token);
     }
 
     public List<CompletionChoice> complete(String prompt, String model){
@@ -19,8 +19,10 @@ public class AIClient {
             model = DEFAULT_MODEL;
         }
         CompletionRequest completionRequest = CompletionRequest.builder()
+                .prompt(prompt)
                 .model(model)
                 .echo(true)
+                .temperature(0.1)
                 .build();
         return aiService.createCompletion(completionRequest).getChoices();
     }

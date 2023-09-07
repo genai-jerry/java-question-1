@@ -6,7 +6,10 @@ import com.theokanning.openai.completion.CompletionChoice;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        AIClient aiClient = new AIClient();
-        aiClient.complete("Somebody once told me the world is gonna roll me", null).forEach(CompletionChoice::toString);
+        String token = args[0];
+        AIClient aiClient = new AIClient(token);
+        aiClient.complete("Java is a great programming language. It was created by", null).forEach(
+                choice -> System.out.println(choice.getText())
+        );
     }
 }
