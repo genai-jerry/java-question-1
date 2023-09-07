@@ -21,7 +21,6 @@ public class AIClient {
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .prompt(prompt)
                 .model(model)
-                .echo(true)
                 .temperature(0.1)
                 .build();
         return aiService.createCompletion(completionRequest).getChoices();
