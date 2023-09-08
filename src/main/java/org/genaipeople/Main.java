@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         String token = args[0];
         AIClient aiClient = new AIClient(token);
-        aiClient.complete("Write a tagline for an ice cream shop.", null).forEach(
+        aiClient.complete("Java is a great programming language. It was created by ", null).forEach(
                 choice -> System.out.println(choice.getText())
         );
     }
